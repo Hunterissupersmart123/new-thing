@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<!--
+
++-----------------------------------------------------------+
+|                 __                     .__                |
+|                |  | _______     _____  |__|               |
+|                |  |/ /\__  \   /     \ |  |               |
+|                |    <  / __ \_|  Y Y  \|  |               |
+|                |__|_ \(____  /|__|_|  /|__|               |
+|                     \/     \/       \/                    |
+|                                   (C) 2014-19 KAMI LTD    |
+|                                                           |
+|                                                           |
+|         Developer APIs available at www.kamiapi.com       |
+|                                                           |
++-----------------------------------------------------------+
+-->
+
+
+<!--
+Copyright 2012 Mozilla Foundation
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+Adobe CMap resources are covered by their own copyright but the same license:
+
+    Copyright 1990-2015 Adobe Systems Incorporated.
+
+See https://github.com/adobe-type-tools/cmap-resources
+-->
+<html dir="ltr" mozdisallowselectionprint moznomarginboxes id="ng-app" ng-app="notable" prevent-touch-zoom>
+  <!-- undefined -->
+  <head>
+    <meta name="robots" content="noindex">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta property="og:image:secure_url" content="https://web.kamihq.com/web/images/icon256.png" />
+    <meta name="google" content="notranslate">
+    <title>Kami</title>
+
+    <script src="browser_support_check.js" async></script>
+
+    <link rel="icon" href="images/icon19.png">
+    <link rel="apple-touch-icon-precomposed" href="images/icon19.png" />
+
+    <link rel="dns-prefetch" href="t.kamiaccess.com">
+    <link rel="dns-prefetch" href="h.kamiaccessfiles.com">
+    <link rel="dns-prefetch" href="c.kamifiles.com">
+    <link rel="dns-prefetch" href="web.kamihq.com">
+    <link rel="dns-prefetch" href="app.box.com">
+    <link rel="dns-prefetch" href="accounts.google.com">
+    <link rel="dns-prefetch" href="oauth.googleusercontent.com">
+    <link rel="dns-prefetch" href="apis.google.com">
+    <link rel="dns-prefetch" href="ssl.gstatic.com">
+    <link rel="dns-prefetch" href="content.googleapis.com">
+    <link rel="dns-prefetch" href="www.googleapis.com">
+    <link rel="dns-prefetch" href="api.kamihq.com">
+    <link href='https://web.kamihq.com' rel='preconnect' crossorigin>
+    <link href='https://accounts.google.com' rel='preconnect' crossorigin>
+    <link href='https://oauth.googleusercontent.com' rel='preconnect' crossorigin>
+    <link href='https://apis.google.com' rel='preconnect' crossorigin>
+    <link href='https://ssl.gstatic.com' rel='preconnect' crossorigin>
+    <link href='https://content.googleapis.com' rel='preconnect' crossorigin>
+    <link href='https://www.googleapis.com' rel='preconnect' crossorigin>
+    <link href='https://api.kamihq.com' rel='preconnect' crossorigin>
+    <link href='https://app.box.com' rel='preconnect' crossorigin>
+    <link href='https://c.kamifiles.com' rel='preconnect' crossorigin>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+
+
+
+
+<link href="/web/notablecompiled/2.0.15312-20220526031200/styles/notable.css" rel="stylesheet"><script src="/web/notablecompiled/2.0.15312-20220526031200/notable.js"></script><script src="/web/notablecompiled/2.0.15312-20220526031200/operative.js"></script>
+<!-- This snippet is used in production (included from viewer.html) -->
+<link rel="resource" type="application/l10n" href="locale/locale.properties">
+<script src="notablecompiled/2.0.15312-20220526031200/l10n.js"></script>
+
+<script src="notablecompiled/2.0.15312-20220526031200/compatibility.js"></script>
+<script src="notablecompiled/2.0.15312-20220526031200/pdf.js"></script>
+<script src="notablecompiled/2.0.15312-20220526031200/debugger.js"></script>
+<script src="notablecompiled/2.0.15312-20220526031200/viewer.js"></script>
+
+
+    <link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/ecnphlgnajanjnkcmbpancdjoidceilk">
+<!-- For creating PWA -->
+  <meta name="viewport" content="width=device-width, user-scalable=no" />
+  <link rel="manifest" href="pwa-manifest.json" />
+
+  </head>
+
+  <body tabindex="1" filedrag class="loadingInProgress standard-theme kami-initializing" theme-loader ng-controller="KamiController"
+    detect-stylus embed-iframe-api undo annotation-shortcuts viewer-shortcuts insert-autograph hand-tool suggest-autoload suggest-extension holiday-decorations classroom-listener 
+    kami-status-notification-manager backup-url ng-class="{'toolbar-dock-left': toolbar_docking === 'left', 'toolbar-dock-right': toolbar_docking === 'right', 'per-page-grader-marking-mode': per_page_grader_marking_active}"
+    disable-copy-paste>
+    <div id="outerContainer" ng-controller="DocumentController" undelete-annotations close-dropdowns app-rater-opener warn-close paste-text-annotation 
+      ng-class="{'hide-comments': hideComments, 'kami-grader-active': grader_state.active, ['microsoft-teams-active microsoft-teams-platform-' + microsoft_teams_platform]: microsoft_teams_platform, 'microsoft-teams-copies-active': microsoft_teams_opener.copiesActive, 'undelete-annotations-active': undelete_annotations_active}" ng-cloak>
+
+      <div id="sidebarContainer">
+        <div id="toolbarSidebar">
+          <div class="splitToolbarButton toggled">
+            <button id="viewPageControlThumbnail" class="toolbarButton group toggled" title="Show Thumbnails" tabindex="2" data-l10n-id="thumbs">
+               <span data-l10n-id="thumbs_label">Thumbnails</span>
+            </button>
+            <button id="viewOutline" class="toolbarButton group" title="Show Document Outline" tabindex="3" data-l10n-id="outline">
+               <span data-l10n-id="outline_label">Document Outline</span>
+            </button>
+            <button id="viewAttachments" class="toolbarButton group" title="Show Attachments" tabindex="4" data-l10n-id="attachments">
+               <span data-l10n-id="attachments_label">Attachments</span>
+            </button>
+            <button id="viewAnnotations" class="toolbarButton group" title="Annotation Summary" tabindex="4" data-l10n-id="annotations">
+               <span data-l10n-id="annotations_label">Annotations</span>
+            </button>
+            <button id="viewAnnotationBanks" class="toolbarButton group" title="Annotation Bank" tabindex="4" data-l10n-id="annotation_banks">
+               <span data-l10n-id="annotation_banks_label">Annotation Bank</span>
+            </button>
+          </div>
+        </div>
+        <div id="sidebarContent">
+          <div id="pageControlThumbnailView">
+            <thumbnail-viewer></thumbnail-viewer>
+          </div>
+          <div id="outlineView" class="hidden">
+          </div>
+          <div id="attachmentsView" class="hidden">
+          </div>
+          <div id="annotationsView" class="hidden" ng-controller="AnnotationBookmarksController">
+            <annotation-bookmark ng-repeat="commentObj in annotations track by commentObj.id"></annotation-bookmark>
+            <div class="no-annotations" ng-hide="annotations.length">This will be where a summary of annotations will be, you don't have any annotations yet.</div>
+          </div>
+          <div id="annotationBanksView" class="hidden" ng-controller="AnnotationBankBookmarksController">
+            <div ng-if="showAnnotationBankFeature" class="annotation-banks-panel">
+              <button ng-click="createNewFolder()">
+                <span class="fa-stack" style="font-size: 10px">
+                  <i class="fa fa-plus fa-stack-1x"></i>
+                  <i class="fa fa-folder-o fa-stack-2x"></i>
+                </span>
+              </button>
+              <button onclick="window.open('http://help.kamiapp.com/en/articles/5172010-kami-annotation-bank-101')">
+                <span class="fa fa-question-circle" style="font-size: 18px"/>
+              </button>
+            </div>
+            <div class="annotation-banks-title" ng-if="!show_copy_paste">Annotation bank is hidden because copy-paste is disabled for this document.</div>
+            <div class="annotation-banks-title" ng-if="!crdbDocument">This document doesn't support annotation bank.</div>
+            <div class="annotation-banks-title" ng-if="crdbDocument && !showAnnotationBankFeature && show_copy_paste">
+              <span ng-if="show_teacher_features()" >Annotation bank is a beta feature, you can turn it on in settings page.</span>
+              <span ng-if="!show_teacher_features()" >Only teachers can enable annotation bank.</span>
+            </div>
+            <div class="annotation-banks-title" ng-if="showAnnotationBankFeature && empty() && show_copy_paste">You don't have any annotations in bank yet. Please click the <span class="fa fa-archive"></span> button on the comment to add it to annotation bank.</div>
+            <div class="annotation-banks-title" ng-if="hasRestorableAnnotationBank() && show_copy_paste">Before any annotation is permanently deleted, you have 1 hour to restore it.</div>
+            <div dragula='"folderBag"' class="annotation-bank-folds-container" ng-if="showAnnotationBankFeature && show_copy_paste">
+              <annotation-bank-folder ng-repeat="annotationBankFolderObj in annotationBankFolders track by annotationBankFolderObj.id"></annotation-bank-folder>
+            </div>
+            <div dragula='"annotationBag"' class="annotation-banks-container" ng-if="showAnnotationBankFeature && show_copy_paste">
+              <annotation-bank-bookmark ng-repeat="annotationBankObj in annotationBanksOutsideFolder track by annotationBankObj.id+annotationBankObj.deleted_at"></annotation-bank-bookmark>
+            </div>
+          </div>
+        </div>
+      </div>  <!-- sidebarContainer -->
+      <div id="mainContainer" ng-class="thumbnail_state.changed === true ? 'container-inactive' : ''">
+        <div class="short-containers visibleMediumView" ng-controller="PremiumBadgeController"> <!-- these containers are used in mobile view -->
+          <div ng-if="referral_notify" class="unread-indicator profile"></div>
+          <div class="secondaryToolbarButtonContainer" profile-dropdown hanger="none" short="true"></div>
+          <div class="secondaryToolbarButtonContainer" help-dropdown hanger="none" short="true"></div>
+        </div>
+        <div id="secondaryToolbar" class="secondaryToolbar hidden doorHangerRight">
+          <div id="secondaryToolbarButtonContainer">
+
+            <button id="dropdown-toolbar-user" class="secondaryToolbarButton notable-nav-button dropdown-left visibleMediumView" secondary-toolbar-toggle-dropdown="user" ng-controller="PremiumBadgeController">
+              <div class="fa avatar">
+                <div ng-if="referral_notify" class="unread-indicator profile"></div>
+                <a alt="{{current_user.name}}" class="initials" colorize-initials="{{current_user.id}}">{{(current_user.name | initials)}}</a>
+              </div>
+              <span class="name-label" data-l10n-id="secondary-help_label">{{current_user.name}}</span>
+            </button>
+
+            <div class="horizontalToolbarSeparator visibleMediumView"></div>
+
+            <button id="secondary-help" class="secondaryToolbarButton notable-nav-button dropdown-left visibleMediumView" title="Help" tabindex="21" data-l10n-id="secondary-help" secondary-toolbar-toggle-dropdown="help">
+              <i class="fa fa-question-circle"></i>
+              <span data-l10n-id="secondary-help_label">Help</span>
+            </button>
+
+            <button id="split-merge-button" class="secondaryToolbarButton notable-nav-button linkButton" title="Split and Merge PDF document" tabindex="37" data-l10n-id="split_merge" ng-click="open_kami_tools('merge')" ng-if="!microsoft_teams">
+              <i class="icon icomoon-splitmerge"></i>
+              <span data-l10n-id="split_merge_label">Split & Merge Document</span>
+            </button>
+            <button id="ocr-button" class="secondaryToolbarButton notable-nav-button linkButton" title="Text Recognition" tabindex="38" data-l10n-id="ocr" ng-click="trigger_ocr()">
+              <i class="icon icomoon-ocr"></i>
+              <span data-l10n-id="ocr_label">Text Recognition</span>
+            </button>
+            <a ng-href="{{location_href()}}" ng-if="show_open_in_new_tab()" target="_blank" class="container-anchor">
+              <button id="open-in-new-tab" class="secondaryToolbarButton notable-nav-button linkButton" title="Open in New Tab" tabindex="39" data-l10n-id="new_tab">
+                <i class="mdi mdi-tab"></i>
+                <span data-l10n-id="new_tab_label">Open in New Tab</span>
+              </button>
+            </a>
+
+            <div ng-show="page_state.document">
+              <div class="horizontalToolbarSeparator"></div>
+
+              <button id="documentProperties" class="secondaryToolbarButton" title="Document Properties" tabindex="31" data-l10n-id="document_properties" ng-click="word_counting()">
+                <i class="mdi mdi-information"></i>
+                <span data-l10n-id="document_properties_label">Document Properties</span>
+              </button>
+
+              <button id="notificationSettings" class="secondaryToolbarButton" title="Notification Settings" tabindex="32" data-l10n-id="document_properties" ng-click="open_window('notification_settings')">
+                <i class="material-icons">insert_comment</i>
+                <span data-l10n-id="notification_settings_label">Notification Settings</span>
+              </button>
+            </div>
+
+            <div class="horizontalToolbarSeparator" ng-show="page_state.document || show_create_google_assignment_button() || is_lti_teacher() "></div>
+
+            <button id="secondaryClassroom" class="secondaryToolbarButton" title="Classroom" tabindex="53" data-l10n-id="classroom" ng-click="open_assignment_dialog()" ng-show="show_create_google_assignment_button()">
+              <i class="mdi mdi-google"></i>
+              <span data-l10n-id="print_label">Create Assignment</span>
+            </button>
+
+            <button class="secondaryToolbarButton" title="Schoology" tabindex="53" data-l10n-id="schoology" ng-click="open_lti_settings()" ng-show="is_lti_teacher() && get_lti_lms() === 'schoology'">
+              <i class="icon icomoon-schoology }}" style="font-size: 18px;"></i>
+              <span data-l10n-id="print_label">Schoology Settings</span>
+            </button>
+
+            <button class="secondaryToolbarButton" title="Canvas" tabindex="53" data-l10n-id="canvas" ng-click="open_lti_settings()" ng-show="is_lti_teacher() && (!get_lti_lms() || get_lti_lms() === 'canvas')">
+              <i class="icon icomoon-canvas" style="font-size: 20px;"></i>
+              <span data-l10n-id="print_label">Canvas Settings</span>
+            </button>
+
+            <button id="secondaryPrint" ng-show="page_state.document" class="secondaryToolbarButton visibleMediumView" title="Print" tabindex="53" data-l10n-id="print">
+              <i class="mdi mdi-printer"></i>
+              <span data-l10n-id="print_label">Print</span>
+            </button>
+
+            <button id="secondary-show-download-dialog" ng-show="page_state.document" class="secondaryToolbarButton notable-nav-button visibleMediumView" title="Export File" tabindex="21" data-l10n-id="download" ng-click="open_window('show_download')" >
+              <i class="fa fa-download"></i>
+              <span data-l10n-id="download_label">Export File</span>
+            </button>
+            <div id="secondaryDownload" class="hide"></div>
+
+            <button id="secondary-share-online" ng-show="share_allowed() && page_state.document" ng-click="show_share()" class="secondaryToolbarButton notable-nav-button shareOnline visibleMediumView" title="Share Document" tabindex="22" data-l10n-id="share">
+              <i class="fa fa-share-alt"></i>
+              <span data-l10n-id="share_label">Share Document</span>
+            </button>
+
+            <a href="#" id="secondaryViewBookmark" class="hide secondaryToolbarButton bookmark visibleSmallView" title="Current view (copy or open in new window)" tabindex="23" data-l10n-id="bookmark">
+              <span data-l10n-id="bookmark_label">Current View</span>
+            </a>
+
+            <div ng-show="page_state.document">
+              <div class="horizontalToolbarSeparator visibleLargeView"></div>
+
+              <button id="firstPage" class="secondaryToolbarButton" title="Go to First Page" tabindex="56" data-l10n-id="first_page">
+                <i class="material-icons">vertical_align_top</i>
+                <span data-l10n-id="first_page_label">Go to First Page</span>
+              </button>
+              <button id="lastPage" class="secondaryToolbarButton" title="Go to Last Page" tabindex="57" data-l10n-id="last_page">
+                <i class="material-icons">vertical_align_bottom</i>
+                <span data-l10n-id="last_page_label">Go to Last Page</span>
+              </button>
+              <button id="jumpToPage" class="secondaryToolbarButton notable-nav-button" title="Jump to Page" tabindex="26" data-l10n-id="jump_to_page">
+                <i class="material-icons">content_copy</i>
+                <span data-l10n-id="jump_to_page_label">Jump to Page</span>
+              </button>
+
+              <button id="undeleteAnnotations" class="secondaryToolbarButton notable-nav-button" title="Restore deleted annotations" tabindex="26" data-l10n-id="undeleted_annotations" ng-click="undelete_annotations()">
+                <i class="mdi mdi-file-restore"></i>
+                <span data-l10n-id="jump_to_page_label">Restore Annotations</span>
+              </button>
+
+              <button id="deleteAnnotations" class="secondaryToolbarButton notable-nav-button" title="Delete all annotations" tabindex="27" data-l10n-id="delete_all_annotations" ng-click="delete_all_annotations()" ng-disabled="undelete_annotations_active">
+                <i class="mdi mdi-delete"></i>
+                <span data-l10n-id="jump_to_page_label">Delete All Annotations</span>
+              </button>
+
+              <div class="horizontalToolbarSeparator"></div>
+
+              <button id="pageRotateCw" class="secondaryToolbarButton" title="Rotate Clockwise" tabindex="28" data-l10n-id="page_rotate_cw">
+                <i class="mdi mdi-rotate-right"></i>
+                <span data-l10n-id="page_rotate_cw_label">Rotate Clockwise</span>
+              </button>
+              <button id="pageRotateCcw" class="secondaryToolbarButton " title="Rotate Counterclockwise" tabindex="29" data-l10n-id="page_rotate_ccw">
+                <i class="mdi mdi-rotate-left"></i>
+                <span data-l10n-id="page_rotate_ccw_label">Rotate Counterclockwise</span>
+              </button>
+
+              <div class="horizontalToolbarSeparator"></div>
+
+              <button id="onePageView" class="secondaryToolbarButton toggled" title="One Page View" tabindex="30" data-l10n-id="one_page_view">
+                <i class="mdi mdi-file"></i>
+                <span data-l10n-id="one_page_view_label">One Page View</span>
+              </button>
+              <button id="twoPageView" class="secondaryToolbarButton" title="Two Page View" tabindex="31" data-l10n-id="two_page_view">
+                <i class="fa fa-pause"></i>
+                <span data-l10n-id="two_page_view_label">Two Page View</span>
+              </button>
+              <button id="twoPageViewShowCoverPage" class="secondaryToolbarButton toggled hidden" title="Show Cover Page" tabindex="32" data-l10n-id="two_page_view_show_cover_page">
+                <i class="fa fa-building-o"></i>
+                <span data-l10n-id="two_page_view_show_cover_page_label">Show Cover Page</span>
+              </button>
+
+              <div class="horizontalToolbarSeparator"></div>
+
+              <button id="secondaryPresentationMode" class="secondaryToolbarButton" title="Switch to Presentation Mode" tabindex="33" data-l10n-id="presentation_mode">
+                <i class="material-icons">open_with</i>
+                <span data-l10n-id="presentation_mode_label">Presentation Mode</span>
+              </button>
+
+              <button id="toggleComments" class="secondaryToolbarButton" title="Toggle Comments" ng-click="toggle_comments()">
+                <i class="material-icons">insert_comment</i>
+                <span>{{hideComments ? 'Show' : 'Hide'}} Comments</span>
+              </button>
+              <div class="horizontalToolbarSeparator"></div>
+
+              <button class="secondaryToolbarButton" title="Undo" ng-click="undo_service.undo()" ng-disabled="!undo_service.hasUndo()">
+                <i class="material-icons">undo</i>
+                <span>Undo</span>
+              </button>
+
+              <button class="secondaryToolbarButton" title="Redo" ng-click="undo_service.redo()" ng-disabled="!undo_service.hasRedo()">
+                <i class="material-icons">redo</i>
+                <span>Redo</span>
+              </button>
+            </div>
+          </div>
+        </div>  <!-- secondaryToolbar -->
+
+        <div class="toolbar">
+          <div id="toolbarContainer">
+            <div id="toolbarViewer">
+              <div id="toolbarViewerLeft">
+                <div id="logo" ng-click="logo_click($event)">
+                  <div class="large-logo" alt="Kami Logo"></div>
+                  <div class="small-logo" alt="Kami Logo"></div>
+                  <div class="toolbarButtonTooltipAnchor"  tooltips tooltip-template="Kami Dashboard" tooltip-side="right" tooltip-hidden="{{!page_state.is_initialized}}"></div>
+                </div>
+
+                <div class="header-badges" ng-controller="PremiumBadgeController" ng-show="isVisible()">
+                  <a class="free-badge badge-toolbar" href="upgrade.html" target="_blank" ng-if="!current_user.premium_subscription_active" ng-click="clicked_premium()" tooltips tooltip-template="You are using the free version of Kami" tooltip-side="right">Upgrade</a>
+                  <div class="badge-toolbar" ng-if="!is_trial_license && days_until_trial_ends" tooltips tooltip-template="{{education_license_tooltips}}" tooltip-side="bottom">
+                    {{days_until_trial_ends}}
+                  </div>
+                  <a ng-if="is_trial_license" class="trial-badge badge-toolbar" href="upgrade.html" target="_blank" ng-if="days_until_trial_ends" title="{{days_until_trial_ends}}" ng-click="clicked_premium('trial')">{{days_until_trial_ends}}</a>
+                  <div class="countdown-badge badge-toolbar important-badge" tooltips tooltip-template="{{countdownTooltips()}}" tooltip-side="bottom" ng-if="showCountdown()">
+                    {{remainingTime}}
+                  </div>
+                </div>
+                <div class="login-badge badge-toolbar" ng-show="current_user.guest_user" guest-login-click>Login</div>
+
+                <button id="sidebarToggle" class="toolbarButton" tabindex="4" data-l10n-id="toggle_sidebar" ng-click="toggle_dropdown(null)" aria-label="Toggle Sidebar" ng-show="page_state.document">
+                  <div class="toolbarButtonTooltipAnchor"  tooltips tooltip-template="Toggle Sidebar" tooltip-side="bottom"></div>
+                  <span data-l10n-id="toggle_sidebar_label">Toggle Sidebar</span>
+                </button>
+                <div>
+                  <button id="viewFind" class="toolbarButton group hiddenSmallView" tabindex="5" data-l10n-id="findbar" aria-label="Find in Document" ng-click="toggle_dropdown(null)" ng-show="page_state.document">
+                    <div class="toolbarButtonTooltipAnchor"  tooltips tooltip-template="Find in Document" tooltip-side="bottom"></div>
+                    <span data-l10n-id="findbar_label">Find</span>
+                  </button>
+                  <div class="findbar hidden doorHanger hiddenSmallView" id="findbar">
+                    <label for="findInput" class="toolbarLabel" data-l10n-id="find_label">Find:</label>
+                    <input id="findInput" class="toolbarField" tabindex="91">
+                    <div class="splitToolbarButton">
+                      <button class="toolbarButton findPrevious" title="" id="findPrevious" tabindex="92" data-l10n-id="find_previous">
+                        <span data-l10n-id="find_previous_label">Previous</span>
+                      </button>
+                      <div class="splitToolbarButtonSeparator"></div>
+                      <button class="toolbarButton findNext" title="" id="findNext" tabindex="93" data-l10n-id="find_next">
+                        <span data-l10n-id="find_next_label">Next</span>
+                      </button>
+                    </div>
+                    <input type="checkbox" id="findHighlightAll" checked="checked" class="toolbarField" tabindex="94">
+                    <label for="findHighlightAll" class="toolbarLabel" data-l10n-id="find_highlight">Highlight all</label>
+                    <input type="checkbox" id="findMatchComments" checked="checked" class="toolbarField" tabindex="95">
+                    <label for="findMatchComments" class="toolbarLabel" data-l10n-id="find_match_case_label">Comments</label>
+                    <input type="checkbox" id="findMatchCase" class="toolbarField" tabindex="95">
+                    <label for="findMatchCase" class="toolbarLabel" data-l10n-id="find_match_case_label">Match case</label>
+                    <span id="findResultsCount" class="toolbarLabel hidden"></span>
+                    <span id="findMsg" class="toolbarLabel"></span>
+                  </div>  <!-- findbar -->
+                </div>
+
+                <!-- Hidden for minimalism -->
+                <div class="splitToolbarButton hide">
+                  <button class="toolbarButton hide pageUp" title="Previous Page" id="previous" tabindex="6" data-l10n-id="previous">
+                    <span data-l10n-id="previous_label">Previous</span>
+                  </button>
+                  <div class="splitToolbarButtonSeparator"></div>
+                  <button class="toolbarButton hide pageDown" title="Next Page" id="next" tabindex="7" data-l10n-id="next">
+                    <span data-l10n-id="next_label">Next</span>
+                  </button>
+                </div>
+
+
+                <div id="documentTitleBar" class="hiddenSmallView" ng-controller="DocumentTitleBarController" ng-show="page_state.document">
+                  <div class="source fa fa-globe item-tooltip-container" ng-class="page_state.document_state.source">
+                    <div tooltips tooltip-template="{{page_state.document_state.source | translateSource}}" tooltip-side="bottom"></div>
+                  </div>
+                  <div class="driveFolder item-tooltip-container" ng-if="page_state.document_state.source == 'googledrive'" ng-click="move_drive_folder()">
+                    <span class="driveFolderName">
+                      {{get_drive_folder()}}
+                    </span>
+                    <i class="fa fa-caret-right folder-separator" ng-if="page_state.document_state.source == 'googledrive'" aria-hidden="true"></i>
+                    <span tooltips tooltip-template="Move" tooltip-side="bottom"></span>
+                  </div>
+                  <div class="documentNameInputWrapper">
+                    <input ng-model="document_name" ng-readonly="readonly()" ng-blur="save_document_name()" ng-keydown="document_name_keydown($event)" class="documentNameInput" title="Rename"/>
+                  </div>
+                </div>
+              </div>
+              <div id="toolbarViewerRight">
+                <div id="saving-progress" ng-show="page_state.document" class="{{unsync_count() > 50 ? 'sync-danger': ''}}" ng-controller="SavingProgressController" ng-switch="status()">
+                  <div ng-switch-when="queued_offline" class="badge-toolbar important-badge">
+                    <div class="badgeTooltipAnchor">
+                      <div tooltips tooltip-template="Offline. Annotations saved locally" tooltip-side="bottom"></div>
+                    </div>
+                    <div id="offline-badge-content">
+                      <span class="icomoon icomoon-highlight"></span>
+                      <span class="badge-text">No Connection. <span class="unsaved-count">{{unsync_count()}}</span> Changes Saved Locally</span>
+                    </div>
+                  </div>
+                  <div ng-switch-when="saving" class="badge-toolbar">
+                    <span>Saving changes…</span>
+                    <span class="undo" ng-show="show_undo()" ng-click="undo()">Undo</span>
+                  </div>
+                  <div ng-switch-when="saved" disappear-after="20" class="badge-toolbar">
+                    <span>Saved</span>
+                    <span class="undo" ng-show="show_undo()" ng-click="undo()">Undo</span>
+                  </div>
+                </div>
+
+                <div class="scaleSelect" id="toolbarViewerMiddle" ng-show="page_state.document">
+                  <div class="splitToolbarButton">
+                    <button id="zoomOut" class="toolbarButton zoomOut" aria-label="Zoom Out" tabindex="21" data-l10n-id="zoom_out">
+                      <div class="toolbarButtonTooltipAnchor"  tooltips tooltip-template="Zoom Out" tooltip-side="bottom"></div>
+                      <span data-l10n-id="zoom_out_label">Zoom Out</span>
+                    </button>
+                    <div class="splitToolbarButtonSeparator"></div>
+                    <button id="zoomIn" class="toolbarButton zoomIn" aria-label="Zoom In" tabindex="22" data-l10n-id="zoom_in">
+                      <div class="toolbarButtonTooltipAnchor"  tooltips tooltip-template="Zoom In" tooltip-side="bottom"></div>
+                      <span data-l10n-id="zoom_in_label">Zoom In</span>
+                     </button>
+                  </div>
+                  <span id="scaleSelectContainer" class="dropdownToolbarButton">
+                     <select id="scaleSelect" title="Zoom" tabindex="23" data-l10n-id="zoom">
+                      <option id="pageDisabledTitle" title="" value="disabled" disabled="disabled">Zoom Options</option>
+                      <option id="pageAutoOption" title="" value="auto" selected="selected" data-l10n-id="page_scale_auto">Automatic</option>
+                      <option id="pageActualOption" title="" value="page-actual" data-l10n-id="page_scale_actual">Actual Size</option>
+                      <option id="pageFitOption" title="" value="page-fit" data-l10n-id="page_scale_fit">Fit Page</option>
+                      <option id="pageWidthOption" title="" value="page-width" data-l10n-id="page_scale_width">Full Width</option>
+                      <option id="customScaleOption" title="" value="custom"></option>
+                      <option title="" value="0.5" data-l10n-id="page_scale_percent" data-l10n-args='{ "scale": 50 }'>50%</option>
+                      <option title="" value="0.75" data-l10n-id="page_scale_percent" data-l10n-args='{ "scale": 75 }'>75%</option>
+                      <option title="" value="1" data-l10n-id="page_scale_percent" data-l10n-args='{ "scale": 100 }'>100%</option>
+                      <option title="" value="1.25" data-l10n-id="page_scale_percent" data-l10n-args='{ "scale": 125 }'>125%</option>
+                      <option title="" value="1.5" data-l10n-id="page_scale_percent" data-l10n-args='{ "scale": 150 }'>150%</option>
+                      <option title="" value="2" data-l10n-id="page_scale_percent" data-l10n-args='{ "scale": 200 }'>200%</option>
+                      <option title="" value="3" data-l10n-id="page_scale_percent" data-l10n-args='{ "scale": 300 }'>300%</option>
+                      <option title="" value="4" data-l10n-id="page_scale_percent" data-l10n-args='{ "scale": 400 }'>400%</option>
+                    </select>
+                  </span>
+                </div>
+                <div id="open-dropdown" secondary-toolbar-toggle-dropdown="open_dropdown" class="toolbarButton notable-nav-button dropdown-common" aria-label="Open File" tabindex="13" data-l10n-id="open_file" ng-controller="OpenDropdownController" ng-if="!microsoft_teams">
+                  <div class="toolbarButtonTooltipAnchor"  tooltips tooltip-template="Open File" tooltip-class="app-toolbar-tooltip" tooltip-append-to-body="true" tooltip-side="bottom"></div>
+                  <span data-l10n-id="open_file_label">Open file</span>
+                  <div class="secondaryToolbarButtonContainer">
+                    <div class="secondaryToolbar doorHangerRight" ng-show="show_dropdown == 'open_dropdown'">
+
+                      <div id="open-from" class="header" title="Open a new file in Kami">Open file from</div>
+                      <div class="indent" title="Open a new file in Kami">
+                        <button class="secondaryToolbarButton" ng-click="open_file()" title="Open file from My Computer">
+                          <i class="fa fa-hdd-o"></i>
+                          <span class="name">My Computer</span>
+                        </button>
+                        <button class="secondaryToolbarButton" ng-click="open_kami_library()" title="Open Kami Library">
+                          <image id="kami-round-icon" class="image-icon" src="./images/icon48 transparent.png"></image>
+                          <span class="name">Kami Library</span>
+                          <image class="svg-badge" src="./images/new-badge.svg"></image>
+                        </button>
+                        <button class="secondaryToolbarButton" ng-click="open_file_browser()" title="Open file from Shared Files">
+                          <i class="fa fa-share-alt"></i>
+                          <span class="name">Shared Files</span>
+                        </button>
+                        <button class="secondaryToolbarButton" ng-click="open_gdrive_picker()" title="Open file from Google Drive">
+                          <i class="fa google"></i>
+                          <span class="name">Google Drive</span>
+                        </button>
+                        <div class="indent">
+                          <button class="secondaryToolbarButton" ng-click="open_gdrive_parent_picker()" ng-show="page_state.document.copy_type === 'google' && page_state.document_state.parent_id" ng-attr-title="Open file from {{get_drive_folder()}} Folder">
+                            <i class="fa fa-folder"></i>
+                            <span class="name">{{get_drive_folder()}}</span>
+                          </button>
+                        </div>
+                        <button class="secondaryToolbarButton" ng-click="open_onedrive_picker()" title="Open file from OneDrive">
+                          <i class="mdi mdi-onedrive"></i>
+                          <span class="name">OneDrive</span>
+                        </button>
+                        <button class="secondaryToolbarButton" ng-click="open_dropbox_picker()" title="Open file from Dropbox">
+                          <i class="fa fa-dropbox"></i>
+                          <span class="name">Dropbox</span>
+                        </button>
+                        <button class="secondaryToolbarButton" ng-click="open_box_picker()" title="Open file from Box">
+                          <i class="fa box"></i>
+                          <span class="name">Box</span>
+                        </button>
+                      </div>
+
+                      <div class="horizontalToolbarSeparator"></div>
+
+                      <div id="open-recent-files" class="header" title="Recently opened files">Recent files</div>
+                      <div ng-show="recent_files.length" class="indent" title="Recently opened files">
+                        <div ng-repeat="file in recent_files | limitTo:5 track by file.document_identifier" ng-attr-title="{{::file.document_name}}" ng-click="open_recent_file(file)">
+                          <div class="secondaryToolbarButton file" ng-hide="file.hide" ng-disabled="file.document_identifier === page_state.document.document_identifier">
+                            <i class="fa source" ng-class="(file.source) ? file.source : 'fa-globe'"></i>
+                            <span class="name {{file_can_open(file) ? '' : 'disabled'}}">{{::file.document_name}}</span>
+                            <div class="remove recent-remove fa fa-times " title="Remove" ng-click="remove_recent($event, file)"></div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div ng-show="page_state.document">
+                        <div class="horizontalToolbarSeparator"></div>
+                        <div id="copy-header" class="header" title="Tracked copies">Tracked copies <!-- <a style='text-align: right' ng-click="switch_copy('new_copy')">Create new</a> --></div>
+                        <div id="copy-description" class="description" title="Tracked copies">
+                        Switch between different copies of the same file that you have previously opened
+                        </div>
+                        <div class="indent" ng-show="document_with_copies">
+                          <button class="secondaryToolbarButton copy" ng-repeat="copy in document_with_copies.copies | limitTo:5" ng-class="{loading: loading}" ng-disabled="copy.document_identifier === page_state.document.document_identifier" ng-attr-title="copy_title(copy)" ng-click="switch_copy(copy)">
+                            <i class="fa" ng-class="copy.copy_type"></i>
+                            <span class="name">{{copy.name}}</span>
+                          </button>
+                          <button class="secondaryToolbarButton view-all" ng-click="open_all_copies()" title="View All Copies">View All</button>
+                        </div>
+                        <div class="indent" ng-hide="document_with_copies">
+                          <i class="fa fa-circle-o-notch fa-spin"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <button id="openFile" class="hidden"> <!-- for pdfjs -->
+                  <span data-l10n-id="open_file_label">Open file</span>
+                </button>
+
+                <button id="share-online" ng-show="share_allowed() && page_state.document" ng-click="show_share()" class="hiddenMediumView toolbarButton notable-nav-button shareOnline" aria-label="Share Document" tabindex="13" data-l10n-id="share" secondary-toolbar-toggle-dropdown="share" ng-if="!microsoft_teams">
+                  <div class="toolbarButtonTooltipAnchor"  tooltips tooltip-template="Share Document" tooltip-class="app-toolbar-tooltip" tooltip-append-to-body="true" tooltip-side="bottom"></div>
+                  <span data-l10n-id="share_label">Share Document</span>
+                </button>
+
+                <div id="print" ng-show="page_state.document && !disable_export_and_print()" class="toolbarButton print hiddenMediumView dropdown-common" aria-label="Print" tabindex="14" data-l10n-id="print" secondary-toolbar-toggle-dropdown="print">
+                  <div class="toolbarButtonTooltipAnchor"  tooltips tooltip-template="Print" tooltip-class="app-toolbar-tooltip" tooltip-append-to-body="true" tooltip-side="bottom"></div>
+                  <span data-l10n-id="print_label">Print</span>
+                  <div class="secondaryToolbarButtonContainer">
+                    <div id="print-dropdown" class="secondaryToolbar doorHangerRight" ng-show="show_dropdown == 'print'">
+                      <div class="header">
+                        Print Document
+                      </div>
+                      <button id="print-original" class="secondaryToolbarButton" title="Print original PDF" ng-click="print('original', $event)">
+                        <span>Original</span>
+                      </button>
+                      <button id="print-top" class="secondaryToolbarButton" title="Print with annotations" ng-click="print('annotation', $event)">
+                        <span>With Annotations</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="sync-dropdown-button" class="toolbarButton notable-nav-button sync dropdown-common" ng-show="page_state.document" aria-label="Save" tabindex="15" data-l10n-id="sync" secondary-toolbar-toggle-dropdown="sync" ng-controller="SyncController">
+                  <div class="toolbarButtonTooltipAnchor"  tooltips tooltip-template="Save" tooltip-class="app-toolbar-tooltip" tooltip-append-to-body="true" tooltip-side="bottom"></div>
+                  <div ng-if="coursework().can_be_turned_in()" class="sync-label">{{coursework().turn_in_label()}}</div>
+                  <div ng-if="coursework().can_be_reclaimed()" class="sync-label">Done</div>
+                  <div ng-if="coursework().can_be_returned()" class="sync-label">Return</div>
+                  <div ng-if="is_edit_assessment_mode()" class="sync-label">Push Changes</div>
+                  <div class="secondaryToolbarButtonContainer">
+                    <div class="secondaryToolbar doorHangerRight" ng-show="show_dropdown == 'sync'">
+                      <sync-dropdown></sync-dropdown>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- element 'download' id required by PDF.js -->
+                <button id="download" class="hide"></button>
+                <button id="show-download-dialog" class="toolbarButton notable-nav-button hiddenMediumView download" ng-show="page_state.document && !disable_export_and_print()"tabindex="15" data-l10n-id="download" ng-click="open_window('show_download'); toggle_dropdown(null)" tooltips tooltip-template="Download" tooltip-class="app-toolbar-tooltip" tooltip-append-to-body="true" tooltip-side="bottom">
+                  <span data-l10n-id="download_label">Download</span>
+                </button>
+
+                <div id="help-dropdown-button" class="hiddenMediumView toolbarButton notable-nav-button help dropdown-common" aria-label="Help" tabindex="16" data-l10n-id="help" secondary-toolbar-toggle-dropdown="help">
+                  <div class="toolbarButtonTooltipAnchor" tooltips tooltip-template="Help" tooltip-class="app-toolbar-tooltip" tooltip-append-to-body="true" tooltip-side="bottom"></div>
+                  <div class="unread-indicator" ng-class="app_notifications_highest_importance.importance.class" ng-if="has_app_notifications"></div>
+                  <div class="secondaryToolbarButtonContainer" hanger="top-right" help-dropdown></div>
+                </div>
+
+                <!-- <div class="toolbarButtonSpacer"></div> -->
+                <a href="#" id="viewBookmark" class="hide toolbarButton bookmark hiddenSmallView" title="Current view (copy or open in new window)" tabindex="16" data-l10n-id="bookmark" ng-click="toggle_dropdown(null)">
+                  <span data-l10n-id="bookmark_label">Current View</span>
+                </a>
+
+                <button id="presentationMode" class="toolbarButton presentationMode hide" title="Switch to Presentation Mode" tabindex="12" data-l10n-id="presentation_mode" ng-click="toggle_dropdown(null)">
+                  <span data-l10n-id="presentation_mode_label">Presentation Mode</span>
+                </button>
+
+                <button id="secondaryToolbarToggle" class="toolbarButton notable-nav-button" aria-label="Menu" tabindex="17" data-l10n-id="tools" ng-click="toggle_dropdown(null)">
+                  <div class="toolbarButtonTooltipAnchor" tooltips tooltip-template="Menu" tooltip-class="app-toolbar-tooltip" tooltip-append-to-body="true" tooltip-side="bottom"></div>
+                  <span data-l10n-id="tools_label">Menu</span>
+                </button>
+
+                <div id="secondary-toolbar-user" class="hiddenMediumView dropdown-common" secondary-toolbar-toggle-dropdown="user" ng-controller="PremiumBadgeController">
+                  <div class="avatar">
+                    <div ng-if="referral_notify" class="unread-indicator profile"></div>
+                    <a alt="{{current_user.name}}" class="initials" colorize-initials="{{current_user.id}}">{{(current_user.name | initials)}}</a>
+                  </div>
+                  <div class="secondaryToolbarButtonContainer" profile-dropdown hanger="top-right"></div>
+                </div>
+              </div>
+            </div>
+            <div id="loadingBar" class="hidden">
+              <div class="progress">
+                <div class="glimmer">
+                </div>
+              </div>
+              <input type="text" class="loaded-amount hidden" readonly />
+            </div>
+          </div>
+        </div>
+
+        <menu type="context" id="viewerContextMenu">
+          <menuitem id="contextFirstPage" label="First Page"
+                    data-l10n-id="first_page"></menuitem>
+          <menuitem id="contextLastPage" label="Last Page"
+                    data-l10n-id="last_page"></menuitem>
+          <menuitem id="contextPageRotateCw" label="Rotate Clockwise"
+                    data-l10n-id="page_rotate_cw"></menuitem>
+          <menuitem id="contextPageRotateCcw" label="Rotate Counter-Clockwise"
+                    data-l10n-id="page_rotate_ccw"></menuitem>
+        </menu>
+
+        <div id="annotations-toolbar-container">
+          <annotations-toolbar media-tool></annotations-toolbar>
+        </div>
+
+        <div id="viewerContainer" tabindex="0" ng-controller="CommentsController" update-annotation-count position-layer pinch-zoom ng-class="{'viewer-container-mouse-passthrough-annotations': annotation_state.should_mouse_passthrough_annotations(),
+        'viewer-container-dictionary-mode': (annotation_state.annotation_mode == 'normal' && annotation_state.selection_submode == 'dictionary') || annotation_state.annotation_mode == 'dictionary',
+        'viewer-container-select-annotations-mode': annotation_state.is_annotation_selection_mode()}">
+          <!-- viewer MUST be the first element -->
+          <div id="viewer" class="pdfViewer" ng-class="{'viewer-loaded': page_state.is_initialized, 'drawing-mode': annotation_state.is_drawing_mode(true), 'shape-creation-mode': annotation_state.is_shape_creation_mode()}"></div>
+          <div ng-show="teacher_to_return_assessment" class="work-returned-container">Well done! Your work has been turned in.</div>
+          <loading-screen ng-show="loading_state.state == 'loading'"></loading-screen>
+          <div id="commentsLayer" collision-detection ng-show="page_state.document">
+            <!-- Comments -->
+            <div ng-controller="CommentController" ng-repeat="commentObj in comments track by commentObj.id"  restore-pointer restore-new-highlights restore-highlights>
+              <annotation-comment set-up-comment comment-spotlight ng-if="!hideComments"></annotation-comment>
+            </div>
+
+            <!-- Highlights -->
+            <div class="highlightBody" ng-controller="CommentController" ng-repeat="commentObj in highlights track by commentObj.id" restore-new-highlights restore-highlights id="comment-{{::commentObj.id}}" ng-class="commentObj.referring_to.user_action"></div>
+            <!-- Texts -->
+            <div ng-controller="CommentController" ng-repeat="commentObj in texts track by commentObj.id" id="comment-{{::commentObj.id}}" setup-in-textlayer></div>
+            <!-- Richtexts -->
+            <div ng-controller="CommentController" ng-repeat="commentObj in richtexts track by commentObj.id" id="comment-{{::commentObj.id}}" restore-richtext></div>
+            <!-- SVG elements -->
+            <div ng-controller="CommentController" ng-repeat="commentObj in drawings track by commentObj.id" restore-drawings></div>
+            <!-- Autographs -->
+            <div ng-controller="CommentController" ng-repeat="commentObj in autographs track by commentObj.id" id="comment-{{::commentObj.id}}" restore-autograph></div>
+            <!-- Form fields -->
+            <div ng-controller="CommentController" ng-repeat="commentObj in form_fields track by commentObj.id" id="comment-{{::commentObj.id}}" restore-form-field></div>
+            <!-- Images -->
+            <div ng-controller="CommentController" ng-repeat="commentObj in images track by commentObj.id" id="comment-{{::commentObj.id}}" restore-autograph></div>
+            <!-- Stickers -->
+            <div ng-controller="CommentController" ng-repeat="commentObj in stickers track by commentObj.id" id="comment-{{::commentObj.id}}" restore-autograph></div>
+            <!-- Equations -->
+            <div ng-controller="CommentController" ng-repeat="commentObj in equations track by commentObj.id" id="comment-{{::commentObj.id}}" restore-equation></div>
+            <!-- Video Annotations -->
+            <div ng-controller="CommentController" ng-repeat="commentObj in video_annotations track by commentObj.id" id="comment-{{::commentObj.id}}" restore-video-annotation></div>
+          </div>
+          <div id="rightToolbarSpacer"></div><!-- This element is absolute positioned to fill space for right toolbar docking -->
+          <setup-tooltip></setup-tooltip>
+          <styler-palette></styler-palette>
+          <dictionary-popup></dictionary-popup>
+          <open-file ng-if="tried_loading_state && page_state.document_load_state.state == 'none' && !is_embed"></open-file>
+          <div ng-controller="TTSController">
+            <div class="highlightBody highlight" ng-repeat="commentObj in highlights track by commentObj.id" restore-new-highlights id="comment-{{::commentObj.id}}"></div>
+          </div>
+          <kami-debug-info/>
+        </div>
+
+        <div id="errorWrapper" hidden='true'>
+          <div id="errorMessageLeft">
+            <span id="errorMessage"></span>
+            <button id="errorShowMore" data-l10n-id="error_more_info">
+              More Information
+            </button>
+            <button id="errorShowLess" data-l10n-id="error_less_info" hidden='true'>
+              Less Information
+            </button>
+          </div>
+          <div id="errorMessageRight">
+            <button id="errorClose" data-l10n-id="error_close">
+              Close
+            </button>
+          </div>
+          <div class="clearBoth"></div>
+          <textarea id="errorMoreInfo" readonly="readonly"></textarea>
+          <textarea id="errorMoreInfo" readonly="readonly" ng-controller="ErrorViewController">{{debug()}}</textarea>
+        </div>
+
+        <div class="header-notifications-list" ng-controller="HeaderNotificationsController" ng-show="headerNotificationsVisible">
+          
+          <app-rater></app-rater>
+          <ocr-prompt></ocr-prompt>
+          <prompt-file-upload></prompt-file-upload>
+          <email-confirmation ng-if="current_user && current_user.id && current_user.email"></email-confirmation>
+          <popup-notifications-zero ng-if="current_user"></popup-notifications-zero>
+          <popup-notifications-one ng-if="current_user"></popup-notifications-one>
+          <license-invites></license-invites>
+          <tour-reminder></tour-reminder>
+          <div class="bottom-spacer"></div>
+        </div>
+
+        <!-- Notable information bottom overlay -->
+        <div class="page-info-collaborator-icons-wrapper" ng-show="page_state.document">
+          <div class="page-info-wrapper" ng-controller="PageInfoController">
+            <div id="page-info">
+              Page
+              <input id="pageNumber" class="pageNumber" type="number" ng-model="page" tabindex="8" />
+              <span id="numPages"></span>
+            </div>
+          </div>
+          <collaborator-icons></collaborator-icons>
+        </div>
+
+        <!-- Show offline information -->
+        <div ng-style="current_user.intercom_properties" class="bottom-wrapper dont-overlap" ng-show="page_state.document">
+          <!-- Keep controller alive as it's a dependency for other services. Todo independent dependencies -->
+          <div id="online-status" ng-controller="OnlineStatusController" ng-show="what === 'Offline'">
+            <span id="online-status-short">Offline</span>
+            <span id="online-status-long">Working offline</span>
+            <span id="online-status-expand">. We'll automatically synchronise changes when online</span>
+          </div>
+        </div>
+
+        <div id="custom-intercom" ng-hide="intercom_disabled || !intercom_loaded" ng-class="{'intercom-open': arrow == 'down'}" class="mdl-button mdl-js-button mdl-button--raised" intercom>
+          <i class="fa intercom-arrow fa-chevron-{{arrow}}"></i><span>Support</span>
+          <div id="custom-intercom-badge" ng-show="unread">{{count}}</div>
+        </div>
+        <div id="snackbar" class="mdl-js-snackbar mdl-snackbar" mdl-snackbar-parse>
+          <div class="mdl-snackbar__text"></div>
+          <div id="snack-progress" class="mdl-progress mdl-js-progress" mdl-parse></div>
+          <button class="mdl-snackbar__action" type="button"></button>
+        </div>
+      </div> <!-- mainContainer -->
+
+      <kami-grader></kami-grader>
+      <microsoft-teams-copies-react
+        ng-if="microsoft_teams_opener.copiesActive"
+        resource-id="microsoft_teams_opener.resourceId">
+      </microsoft-teams-copies-react>
+
+      <div id="overlayContainer" class="hidden">
+        <div id="passwordOverlay" class="container hidden" password-prompt>
+          <div class="dialog">
+            <div class="row">
+              <p id="passwordText" data-l10n-id="password_label">Enter the password to open this PDF file:</p>
+            </div>
+            <div class="row">
+              <!-- The type="password" attribute is set via script, to prevent warnings in Firefox for all http:// documents. -->
+              <input id="password" class="toolbarField" autocomplete="off" >
+            </div>
+            <div class="buttonRow">
+              <button id="passwordCancel" class="overlayButton"><span data-l10n-id="password_cancel">Cancel</span></button>
+              <button id="passwordSubmit" class="overlayButton"><span data-l10n-id="password_ok">OK</span></button>
+            </div>
+          </div>
+        </div>
+        <div id="documentPropertiesOverlay" class="container hidden">
+          <div class="dialog">
+            <div class="row">
+              <span data-l10n-id="document_properties_file_name">File name:</span> <p id="fileNameField">-</p>
+            </div>
+            <div class="row">
+              <span data-l10n-id="document_properties_file_size">File size:</span> <p id="fileSizeField">-</p>
+            </div>
+            <div class="separator"></div>
+            <div class="row">
+              <span data-l10n-id="document_properties_title">Title:</span> <p id="titleField">-</p>
+            </div>
+            <div class="row">
+              <span data-l10n-id="document_properties_author">Author:</span> <p id="authorField">-</p>
+            </div>
+            <div class="row">
+              <span data-l10n-id="document_properties_subject">Subject:</span> <p id="subjectField">-</p>
+            </div>
+            <div class="row">
+              <span data-l10n-id="document_properties_keywords">Keywords:</span> <p id="keywordsField">-</p>
+            </div>
+            <div class="row">
+              <span data-l10n-id="document_properties_creation_date">Creation Date:</span> <p id="creationDateField">-</p>
+            </div>
+            <div class="row">
+              <span data-l10n-id="document_properties_modification_date">Modification Date:</span> <p id="modificationDateField">-</p>
+            </div>
+            <div class="row">
+              <span data-l10n-id="document_properties_creator">Creator:</span> <p id="creatorField">-</p>
+            </div>
+            <div class="separator"></div>
+            <div class="row">
+              <span data-l10n-id="document_properties_producer">PDF Producer:</span> <p id="producerField">-</p>
+            </div>
+            <div class="row">
+              <span data-l10n-id="document_properties_version">PDF Version:</span> <p id="versionField">-</p>
+            </div>
+            <div class="row">
+              <span data-l10n-id="document_properties_page_count">Page Count:</span> <p id="pageCountField">-</p>
+            </div>
+            <div class="row">
+              <span>Annotation Word Count:</span> <p>{{word_count}}</p>
+            </div>
+            <div class="buttonRow">
+              <button id="documentPropertiesClose" class="overlayButton"><span data-l10n-id="document_properties_close">Close</span></button>
+            </div>
+          </div>
+        </div>
+
+
+      </div>  <!-- outerContainer -->
+
+      <user-access></user-access>
+      <div id="guest-user-email-request-window" class="kami-overlay-container" ng-controller="GuestUserRequestController" ng-show="show_email_request" click-shadow-to-exit="close">
+        <div class="kami-dialog">
+          <div class="header">
+            <h1 ng-hide="ask_for_email_only">Sorry to interrupt</h1>
+            <h1 ng-show="ask_for_email_only">Action Required</h1>
+            <button class="close" ng-click="close()"></button>
+          </div>
+          <div class="body">
+            <p ng-hide="ask_for_email_only">Sign up now so you don't lose access to your work</p>
+            <p ng-show="ask_for_email_only">Your work is saved to the Kami Sync Cloud, it's automatic and encrypted. But we need your email address so that you can regain access to your work in the future.</p>
+            <ul class="errors" ng-show="errors.length">
+              <li class="error" ng-repeat="error in errors">
+                {{error}}
+              </li>
+            </ul>
+            <div class="fields" spellcheck="false">
+              <input class="kami-input" type="text" placeholder="Name *" ng-model="name" ng-hide="ask_for_email_only" />
+              <input class="kami-input" type="email" placeholder="Email *" ng-model="email" />
+            </div>
+            <div class="button-row">
+              <button class="button primary" ng-disabled="purchase-disabled" ng-click="change()">Next</button>
+            </div>
+            <p>
+              <a class="link-button secondary" ng-click="show_login()">I already have an account or want to login with Google</a>
+            </p>
+          </div>
+        </div>
+      </div>
+      <localstore-disabled-warning></localstore-disabled-warning>
+
+      <input id="fileInput"  class="fileInput" type="file" accept="application/pdf|image/*" ng-controller="FileInputController" ngf-select="open_selected_file($file)" oncontextmenu="noContextMenuHandler" />
+      <undelete-annotations-actionbar></undelete-annotations-actionbar>
+      <div id="floating-cards" ng-controller="FloatingCardsController">
+        <floating-card-item ng-repeat="card in cards track by card.id"></floating-card-item>
+      </div>
+    </div>
+
+    <div id="loading-failed-message" class="kami-overlay-container bg-full-opacity" ng-cloak ng-show="false">
+      <div class="kami-dialog">
+        <div class="header">
+          <h1>Whoops... An Unexpected Error Occurred</h1>
+        </div>
+        <div class="body">
+          <p>If this problem persists, please email <a href="mailto:support@kamiapp.com" target="_blank">support@kamiapp.com</a> with a screenshot</p>
+          <p>Check our Twitter <a href="https://twitter.com/kamiapp" target="_blank">@kamiapp</a> for status updates</p>
+          <pre id="loading-failed-debug" class="drive-message debug-message"></pre>
+        </div>
+      </div>
+    </div>
+
+    <img class="turnin-animation turnin-animation-left" />
+    <img class="turnin-animation turnin-animation-right" />
+
+    <div id="printContainer"></div>
+    <script async src="https://www.dropbox.com/static/api/2/dropins.js" id="dropboxjs" data-app-key="yyxq82iiyg93wd8"></script>
+    <script async src="https://app.box.com/js/static/select.js"></script>
+    <script async src="https://apis.google.com/js/client.js?onload=gapi_loaded"></script>
+    <script src="https://checkout.stripe.com/checkout.js"></script>
+
+<div id="mozPrintCallback-shim" hidden>
+  <style>
+@media print {
+  #printContainer div {
+    page-break-after: always;
+    page-break-inside: avoid;
+  }
+}
+  </style>
+  <style scoped>
+#mozPrintCallback-shim {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 9999999;
+
+  display: block;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+#mozPrintCallback-shim[hidden] {
+  display: none;
+}
+@media print {
+  #mozPrintCallback-shim {
+    display: none;
+  }
+}
+
+#mozPrintCallback-shim .mozPrintCallback-dialog-box {
+  display: inline-block;
+  margin: -50px auto 0;
+  position: relative;
+  top: 45%;
+  left: 0;
+  min-width: 220px;
+  max-width: 400px;
+
+  padding: 9px;
+
+  border: 1px solid hsla(0, 0%, 0%, .5);
+  border-radius: 2px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+
+  background-color: #474747;
+
+  color: hsl(0, 0%, 85%);
+  font-size: 16px;
+  line-height: 20px;
+}
+#mozPrintCallback-shim .progress-row {
+  clear: both;
+  padding: 1em 0;
+}
+#mozPrintCallback-shim progress {
+  width: 100%;
+}
+#mozPrintCallback-shim .relative-progress {
+  clear: both;
+  float: right;
+}
+#mozPrintCallback-shim .progress-actions {
+  clear: both;
+}
+  </style>
+  <div class="mozPrintCallback-dialog-box">
+    <!-- TODO: Localise the following strings -->
+    Preparing document for printing...
+    <div class="progress-row">
+      <progress value="0" max="100"></progress>
+      <span class="relative-progress">0%</span>
+    </div>
+    <div class="progress-actions">
+      <input type="button" value="Cancel" class="mozPrintCallback-cancel">
+    </div>
+  </div>
+</div>
+
+
+    <script>
+      // Compatibility workaround for https://github.com/angular/angular.js/issues/15772 (incompatability between angular and pdf.js on IE 11)
+      if (!!window.MSInputMethodContext && !!document.documentMode)
+      {
+        angular.bootstrap(document.body, ['notable']);
+      }
+
+    </script>
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v652eace1692a40cfa3763df669d7439c1639079717194" integrity="sha512-Gi7xpJR8tSkrpF7aordPZQlW2DLtzUlZcumS8dMQjwDHEnw9I7ZLyiOj/6tZStRBGtGgN6ceN6cMH8z7etPGlw==" data-cf-beacon='{"rayId":"7116ec3b6e61aa0f","token":"d9f2acc8d33949fc984a7e54975f1de0","version":"2021.12.0","si":100}' crossorigin="anonymous"></script>
+</body>
+</html>
